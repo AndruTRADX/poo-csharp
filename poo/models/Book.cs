@@ -12,7 +12,7 @@ namespace poo.models
         private string title;
         private string author;
         private string releaseDate;
-        private List<Review> reviews;
+        private readonly List<Review> reviews;
 
         public Book(string title, string author, string releaseDate)
         {
@@ -26,11 +26,11 @@ namespace poo.models
         // Getter & Setter
         public static int Id() { return id; }
         public string Title
-        { get { return title; } set { title = value; } }
+        { get { return title; } set { title = value.Trim(); } }
         public string Author
-        { get { return author; } set { author = value; } }
+        { get { return author; } set { author = value.Trim(); } }
         public string ReleaseDate
-        { get { return releaseDate; } set { releaseDate = value; } }
+        { get { return releaseDate; } set { releaseDate = value.Trim(); } }
         public List<Review> Reviews 
         { get {  return reviews; } }
 
@@ -40,7 +40,7 @@ namespace poo.models
             StringBuilder allReviews = new ();
             foreach (Review review in reviews)
             {
-                allReviews.Append(review.ToString());
+                allReviews.AppendLine(review.ToString());
             }
             return allReviews.ToString();
         }

@@ -31,15 +31,17 @@ namespace poo.models
             this.text = text;
         }
 
+        // Getters & Setters
         public string User
-        { get { return user; } set { user = value; } }
+        { get { return user; } set { user = value.Trim(); } }
 
         public Rate Rate
         { get { return rate; } set { rate = value; } }
 
         public string Text
-        { get { return text; } set { text = value; } }
+        { get { return text; } set { text = value.Trim(); } }
 
+        // Methods
         public override string ToString()
         {
             return $"Review by: {user}\nRating: {rate}\nText: {text}\n";
